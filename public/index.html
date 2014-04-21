@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='/index.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src='http://code.jquery.com/jquery-1.6.1.min.js'></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/index.js'></script>
+  </head>
+  <body>
+  
+      
+    
+        <div id="cursors">
+        	<!-- The mouse pointers will be created here -->
+        </div>
+
+        <canvas id="paper" >
+            Your browser needs to support canvas for this to work!
+        </canvas>
+
+        <hgroup id="instructions">
+            <h1>Draw anywhere!</h1>
+            <h2>You will see everyone else who's doing the same.</h2>
+            <h3>Tip: if the stage gets dirty, simply reload the page</h3>
+        </hgroup>
+
+        <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->
+        <script src="/server/node_modules/../socket.io/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script src="assets/js/script.js"></script>
+      
+      <footer>
+	         <h1>
+             <div id="show_chat"><button>Show</button></div>
+             <div id="hide_chat" style="display:none"><button>Hide</button></div>
+             <div  >
+             </h1>
+               <div id="chat">
+                  <div id="nickname">
+                    <form class="wrap" id="set-nickname">
+                      <label for="nick">Please type in your nickname and press enter.</label>
+                      <input id="nick" name="nick" type="text" tabindex="1" placeholder="nickname" />
+                      <p id="nickname-err">Nickname already in use</p>
+                    </form>
+                  </div>
+                  <div id="connecting">
+                    <div class="wrap">Connecting to socket.io server</div>
+                  </div>
+                  <div id="messages">
+                    <div id="nicknames"></div>
+                    <div id="lines"></div>
+                  </div>
+                  <form id="send-message">
+                    <input id="message" placeholder="Write Your Message Here"type="text"/>
+                    <div>
+                      <button value="" class="send">Send</button>
+                      <button id="shake">Shake</button></div>
+                      <div class="filebutton">Send Image<input type="file" id="imagefile" accept="image/*"></div>
+                    </div>
+                  </form>
+               </div> 
+        </footer>
+      
+  </body>
+</html>
+
+
+<script>
+$(document).ready(function(){
+
+$("#show_chat").click(function()
+{
+  $('#show_chat').parent().parent().addClass('bottom_above');
+  $('#show_chat').hide();
+  $('#hide_chat').show();
+  
+});
+
+$("#hide_chat").click(function()
+{
+ $('#show_chat').parent().parent().removeClass('bottom_above');
+  $('#show_chat').show();
+  $('#hide_chat').hide();
+  
+});
+$("#shake").click(function() {
+  //$("#paper").addClass('width100px');
+  $("#paper").animate({ padding: -10, width: "-=100", height: "-=100" });
+   $("#paper").animate({ padding: -10, width: "+=100", height: "+=100" });
+  
+});
+
+});
+</script>
+
