@@ -1,5 +1,5 @@
 
-  //
+  
   // socket.io code
   //
   var socket = io.connect();
