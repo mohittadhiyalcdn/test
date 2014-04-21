@@ -253,3 +253,13 @@ div.filebutton {
   overflow-y: auto;
   margin:50px 0px 0px 350px;
 }
+.unknownlines__ {
+  height: 250px;
+  width: 600px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  margin:50px 0px 0px 350px;
+}

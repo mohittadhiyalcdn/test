@@ -1,7 +1,6 @@
 
   
-  // socket.io code
-  //
+  
   var socket = io.connect();
 
   socket.on('connect', function () {
